@@ -1,0 +1,26 @@
+require("dotenv").config()
+
+const express = require("express")
+const app = express()
+const mongoose = require("mongoose")
+
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+const db = mongoose.connection
+db.on('error', (error) => console.error(error))
+db.on('open', () => console.log('connected to db'))
+
+app.use(express.json())
+
+app.get('/', (req, res) => {
+    res.json({message: "Deny"})
+})
+
+app.get('/login', (req, res) => {
+    res.json({message: "login"})
+})
+
+app.get('/signin', (req, res) => {
+    res.json({message: "signin"})
+})
+
+app.listen(3000)
