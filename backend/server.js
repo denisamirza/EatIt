@@ -9,6 +9,8 @@ var fs = require('fs');
 var path = require('path');
 require('dotenv/config');
 
+const bcrypt = require('bcryptjs');
+
 var cors = require("cors")
 app.use(cors())
 
@@ -33,6 +35,29 @@ app.get('/login', (req, res) => {
 
 app.get('/signin', (req, res) => {
     res.json({message: "signin"})
+})
+
+app.post('/login',(request, response) => {
+    user.collection.findOne({username: request.body.username}, (err, foundItem) => {
+        if (foundItem) {
+            if (bcrypt.compareSync(request.body.password, foundItem.password)) {
+                console.log("success!");
+                response.sendStatus(200);
+            }
+        }
+        else {
+            console.log(err);
+        }
+    })
+})
+
+app.post('/register',(request, response) => {
+    user.collection.insertOne(
+    {
+       username: request.body.username,
+       password: bcrypt.hashSync(request.body.password, 10)
+    })
+    console.log(bcrypt.hashSync(request.body.password, 10));
 })
 
 const userSchema = {
