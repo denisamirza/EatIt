@@ -1,5 +1,3 @@
-require("dotenv").config()
-
 const express = require("express")
 const app = express()
 var bodyParser = require('body-parser');
@@ -8,6 +6,7 @@ var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
 require('dotenv/config');
+require("dotenv").config()
 
 const bcrypt = require('bcryptjs');
 
@@ -27,37 +26,6 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({message: "Deny"})
-})
-
-app.get('/login', (req, res) => {
-    res.json({message: "login"})
-})
-
-app.get('/signin', (req, res) => {
-    res.json({message: "signin"})
-})
-
-app.post('/login',(request, response) => {
-    user.collection.findOne({username: request.body.username}, (err, foundItem) => {
-        if (foundItem) {
-            if (bcrypt.compareSync(request.body.password, foundItem.password)) {
-                console.log("success!");
-                response.sendStatus(200);
-            }
-        }
-        else {
-            console.log(err);
-        }
-    })
-})
-
-app.post('/register',(request, response) => {
-    user.collection.insertOne(
-    {
-       username: request.body.username,
-       password: bcrypt.hashSync(request.body.password, 10)
-    })
-    console.log(bcrypt.hashSync(request.body.password, 10));
 })
 
 const userSchema = {
@@ -92,8 +60,8 @@ const movie = mongoose.model(
     movieSchema,
     "movies"
 );
-
-var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
+var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
+// var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
 
 user.findOne({username: "deni"}, (err, foundItem) => {
     if (err) {
@@ -134,5 +102,9 @@ user.findOne({username: "deni"}, (err, foundItem) => {
         overallRating: 10
      }
  )
+
+const authRouter = require('./routes/auth')
+
+app.use('/auth', authRouter)
 
 app.listen(3000)
