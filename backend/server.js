@@ -104,7 +104,9 @@ user.findOne({username: "deni"}, (err, foundItem) => {
  )
 
 const authRouter = require('./routes/auth')
+const movieRouter = require('./routes/movie')
 
 app.use('/auth', authRouter)
+app.use('/movie', movieRouter)
 
 app.listen(3000)
