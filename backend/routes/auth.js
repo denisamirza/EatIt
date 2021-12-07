@@ -1,5 +1,19 @@
 const express = require("express")
 const router = express.Router()
+const mongoose = require("mongoose")
+
+const bcrypt = require('bcryptjs');
+
+const userSchema = {
+    username: String,
+    password: String
+};
+
+const user = mongoose.model(
+    "Users",
+    userSchema,
+    "users"
+);
 
 router
     .route('/login')
@@ -26,12 +40,13 @@ router
         res.json({message: "register"})
     })
     .post((request, response) => {
+        var hash = bcrypt.hashSync(request.body.password, 10)
         user.collection.insertOne(
         {
            username: request.body.username,
-           password: bcrypt.hashSync(request.body.password, 10)
+           password: hash
         })
-        console.log(bcrypt.hashSync(request.body.password, 10));
+        console.log(hash);
     })
 
 module.exports = router
