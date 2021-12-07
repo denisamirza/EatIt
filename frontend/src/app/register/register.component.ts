@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  username: string = '';
+  pass: string = '';
+  constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
   }
 
+  register() {
+    this.http.post('http://localhost:3000/auth/register', {
+            username: this.username,
+            password: this.pass
+          }).subscribe(data => {
+            console.log("success");
+          })
+  }
 }

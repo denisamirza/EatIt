@@ -3,15 +3,17 @@
     <form class="example-form">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="" value="">
+        <input matInput placeholder="" value=""  type="text" id="username" name="username" [(ngModel)]="username">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput placeholder="" value="">
+        <input matInput placeholder="" value="" type="text" id="pass" name="pass" [(ngModel)]="pass">
       </mat-form-field>
     </form>
 
+    <button mat-raised-button (click)="register()">REGISTER</button>
   </mat-card>
 </div>
+
 

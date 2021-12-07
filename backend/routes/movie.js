@@ -24,8 +24,8 @@ const movie = mongoose.model(
     "movies"
 );
 
-var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
-// var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
+//var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
+ var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
 
 // user.findOne({username: "deni"}, (err, foundItem) => {
 //     if (err) {

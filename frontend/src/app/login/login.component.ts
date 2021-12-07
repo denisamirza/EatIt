@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.http.post('api/login', {
+    this.http.post('http://localhost:3000/auth/login', {
             username: this.username,
             password: this.pass
           }).subscribe(data => {
