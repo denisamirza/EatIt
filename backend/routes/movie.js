@@ -53,34 +53,34 @@ router
 //     }
 // })
 
-//  movie.collection.insertOne(
-//      {
-//         title: "action",
-//         genre: "adventure",
-//         description: "best adventure movie",
-//         picture: {
-//             data: fs.readFileSync(imgPath),
-//             contentType: 'image/png'
-//         },
-//         cast: [{
-//             name: "some vips",
-//             picture: {
-//                 data: fs.readFileSync(imgPath),
-//                 contentType: 'image/png'
-//             }
-//         }],
-//         review: [{
-//             rating: 10,
-//             reviewDescription: "very good"
-//         }],
-//         overallRating: 10
-//      }
-//  )
-
 router
     .route('/')
     .get((req, res) => {
         res.json({message: "movies browse page"})
+    })
+    .post((req, res) => {
+        movie.collection.insertOne(
+        {
+            title: req.body.title,
+            genre: req.body.genre,
+            description: req.body.description,
+            picture: {
+                data: req.body.picture.data,
+                contentType: 'image/png'
+            },
+            cast: [{
+                name: req.body.cast.name,
+                picture: {
+                    data: req.body.cast.picture.data,
+                    contentType: 'image/png'
+                }
+            }],
+            review: [{
+                rating: req.body.review.rating,
+                reviewDescription: req.body.review.reviewDescription
+            }],
+            overallRating: req.body.overallRating
+        })
     })
     
 router
