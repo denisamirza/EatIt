@@ -1,4 +1,5 @@
 const express = require("express")
+var request = require("request");
 const router = express.Router()
 const mongoose = require("mongoose")
 
@@ -23,6 +24,22 @@ const movie = mongoose.model(
     movieSchema,
     "movies"
 );
+
+router
+.route('/imdb')
+.get((req, res) => { 
+    request("https://www.omdbapi.com/?s=sting&apikey=thewdb", 
+        function(error, response, body){
+            if(!error && response.statusCode == 200){
+                // res.send(body); < what we had before
+                var data = JSON.parse(body);
+                res.send(data);
+                console.log(data);
+                //res.render("results", {data: data});
+            }
+    });
+    console.log("movie");
+});
 
 //var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
  var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
