@@ -1,5 +1,5 @@
 const express = require("express")
-var request = require("request");
+// var request = require("request");
 const router = express.Router()
 const mongoose = require("mongoose")
 
@@ -41,8 +41,8 @@ router
     console.log("movie");
 });
 
-//var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
- var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
+var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
+// var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
 
 // user.findOne({username: "deni"}, (err, foundItem) => {
 //     if (err) {
@@ -87,6 +87,17 @@ router
     .route('/:id')
     .get((req, res) => {
         res.json({message: `movie with id ${req.params.id}`})
+        movie.collection.findOne({title: req.body.title}, (err, foundItem) => {
+            if (foundItem)
+            {
+                res.json({message: `movie: ${foundItem}`})
+                console.log("success!");
+                response.sendStatus(200);
+            }
+            else {
+                console.log(err);
+            }
+        })
     })
 
 module.exports = router
