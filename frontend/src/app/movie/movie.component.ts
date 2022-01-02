@@ -21,7 +21,27 @@ export class MovieComponent implements OnInit {
             console.log("success" + JSON.stringify(data));
               this.movie = JSON.parse(JSON.stringify(data));
               this.movie = this.movie["Search"];
+              this.toDataURL(
+                this.movie["Poster"],
+                function (dataUrl : any) {
+
+                  console.log('deni:' + dataUrl);
+                });
           })
+  }
+
+  toDataURL(url : any, callback : any) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
   }
 
 }
