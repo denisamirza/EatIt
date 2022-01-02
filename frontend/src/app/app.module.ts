@@ -13,13 +13,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { MovieComponent } from './movie/movie.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MovieComponent
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,7 @@ import { MovieComponent } from './movie/movie.component';
     MatCardModule,
     BrowserAnimationsModule,
     FormsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

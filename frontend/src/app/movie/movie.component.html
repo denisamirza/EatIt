@@ -1,13 +1,12 @@
-<p>movie works!</p>
 
-<p>Convert jsOn to/from Object Example</p>
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let item of movie">
+    <ng-template carouselSlide [id]="item.imdbID">
+      <div class="movie">
+        <img src={{item.Poster}}/>
+        <td>{{item.Title}}</td>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
 
-  <table>
-        <tr *ngFor="let item of movie">
-          <td>{{item.Title}}</td>
-          <td>{{item.Year}}</td>
-          <td>{{item.Type}}</td>
-          <img src={{item.Poster}} />
-        </tr>
-
-  </table>
