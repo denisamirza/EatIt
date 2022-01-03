@@ -28,7 +28,7 @@ const movie = mongoose.model(
 router
 .route('/imdb')
 .get((req, res) => { 
-    request("https://www.omdbapi.com/?s=sting&apikey=thewdb", 
+    request("https://www.omdbapi.com/?s=batman&apikey=thewdb&plot=full", 
         function(error, response, body){
             if(!error && response.statusCode == 200){
                 // res.send(body); < what we had before

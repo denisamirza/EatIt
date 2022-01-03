@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { MovieComponent } from './movie/movie.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     RegisterComponent,
     MovieComponent,
+    UserNavbarComponent,
   ],
   imports: [
     BrowserModule,
