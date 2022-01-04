@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { MovieComponent } from './movie/movie.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
     RegisterComponent,
     MovieComponent,
     UserNavbarComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,

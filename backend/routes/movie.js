@@ -41,6 +41,25 @@ router
     console.log("movie");
 });
 
+router
+.route('/imdb/:id')
+.get((req, res) => { 
+    request("https://www.omdbapi.com/?apikey=thewdb&i=" + req.params.id, 
+        function(error, response, body){
+            if(!error && response.statusCode == 200){
+                // res.send(body); < what we had before
+                var data = JSON.parse(body);
+                res.send(data);
+                console.log(data);
+                //res.render("results", {data: data});
+            }
+            else{
+                console.log("ll");
+            }
+    });
+    console.log("movie");
+});
+
 var imgPath = 'D:/Lo/msa/pics/Sample_User_Icon.png';
 // var imgPath = 'C:/Users/Deni/Pictures/Saved Pictures/cat.png';
 
