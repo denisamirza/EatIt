@@ -12,4 +12,12 @@
       z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
       color: white;
   }
+  button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
 }

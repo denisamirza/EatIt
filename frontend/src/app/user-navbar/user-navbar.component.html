@@ -1,5 +1,9 @@
 <footer>
   <div class="container">
-    <span class="text-muted">navbar</span>
+    <button (click)="goToPage('/home')" replaceUrl="true">
+      <img src="assets/img/home_button.png" width="35">
+   </button>
+   <a routerLink="/login">Login</a>
+   <a routerLink="/movie">Movie</a>
   </div>
 </footer>
