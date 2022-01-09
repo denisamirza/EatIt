@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Router } from '@angular/router';
+import { SharedService } from "../shared/shared.service"
 
 @Component({
   selector: 'app-movie',
@@ -33,7 +35,9 @@ export class MovieComponent implements OnInit {
     nav: true
   }
   movie: any;
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,
+              private router: Router,
+              private shared: SharedService) { }
 
   ngOnInit(): void {
     this.getImDbMovies();
@@ -52,6 +56,11 @@ export class MovieComponent implements OnInit {
                   console.log('deni:' + dataUrl);
                 });
           })
+  }
+
+  gotToMovie(movieId: any) {
+    this.shared.setMovieId(movieId);
+    this.router.navigate([`movie`]);
   }
 
   toDataURL(url : any, callback : any) {

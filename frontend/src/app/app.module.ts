@@ -16,6 +16,9 @@ import { MovieComponent } from './movie/movie.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { InitialNavbarComponent } from './initial-navbar/initial-navbar.component';
+import { FavouriteMoviesComponent } from './favourite-movies/favourite-movies.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MovieComponent,
     UserNavbarComponent,
     MovieDetailsComponent,
+    InitialNavbarComponent,
+    FavouriteMoviesComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

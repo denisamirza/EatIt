@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   username: string = '';
   pass: string = '';
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
             username: this.username,
             password: this.pass
           }).subscribe(data => {
-            console.log("success");
+            this.router.navigate([`home`]);
+            console.log("successss");
           })
   }
 }

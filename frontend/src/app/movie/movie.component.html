@@ -1,12 +1,15 @@
 
+<img src="assets/img/logo.jpg" width="350">
 <owl-carousel-o [options]="customOptions">
   <ng-container *ngFor="let item of movie">
     <ng-template carouselSlide [id]="item.imdbID">
       <div class="movie">
-        <img src={{item.Poster}}/>
+        <img src={{item.Poster}} width="150" height="200"/>
         <td>{{item.Title}}</td>
+        <button mat-raised-button (click)="gotToMovie(item.imdbID)">goToMovie</button>
       </div>
     </ng-template>
   </ng-container>
 </owl-carousel-o>
+<app-user-navbar></app-user-navbar>
 

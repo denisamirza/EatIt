@@ -1,3 +1,18 @@
-<td>{{movie.Title}}</td>
-<img src={{movie.Poster}}/>
-<td>{{movie.Plot}}</td>
+<div>
+  <td>{{movie.Title}}</td>
+  <img src={{movie.Poster}}/>
+  <td>{{movie.Plot}}</td>
+</div>
+
+<div>
+  <ng-container *ngFor="let item of commentsList">
+    <div>
+      <td>{{item.username}}</td>
+      <td>{{item.comment}}</td>
+    </div>
+  </ng-container>
+</div>
+
+<textarea [(ngModel)]="comment"></textarea>
+<button mat-raised-button (click)="onSubmit()">Send</button>
+<app-user-navbar></app-user-navbar>

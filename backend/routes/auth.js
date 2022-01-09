@@ -25,7 +25,7 @@ router
             if (foundItem) {
                 if (bcrypt.compareSync(request.body.password, foundItem.password)) {
                     console.log("success!");
-                    response.sendStatus(200);
+                    response.json(200,{status:"ok"})
                 }
             }
             else {

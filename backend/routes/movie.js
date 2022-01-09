@@ -34,8 +34,8 @@ router
                 // res.send(body); < what we had before
                 var data = JSON.parse(body);
                 res.send(data);
-                console.log(data);
-                //res.render("results", {data: data});
+                // console.log(data);
+                // res.render("results", {data: data});
             }
     });
     console.log("movie");
@@ -50,11 +50,11 @@ router
                 // res.send(body); < what we had before
                 var data = JSON.parse(body);
                 res.send(data);
-                console.log(data);
+                // console.log(data);
                 //res.render("results", {data: data});
             }
             else{
-                console.log("ll");
+                console.log("error");
             }
     });
     console.log("movie");

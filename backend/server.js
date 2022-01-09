@@ -28,8 +28,12 @@ app.get('/', (req, res) => {
 
 const authRouter = require('./routes/auth')
 const movieRouter = require('./routes/movie')
+const movieCommentsRouter = require('./routes/movieComments')
+const userFavouritesRouter = require('./routes/userFavourites')
 
 app.use('/auth', authRouter)
 app.use('/movie', movieRouter)
+app.use('/movieComment', movieCommentsRouter)
+app.use('/userFavourites', userFavouritesRouter)
 
 app.listen(3000)
