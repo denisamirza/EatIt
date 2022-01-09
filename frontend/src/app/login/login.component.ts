@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SharedService } from "../shared/shared.service"
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ export class LoginComponent implements OnInit {
 
   username: string = '';
   pass: string = '';
-  constructor(private http : HttpClient, private router: Router) { }
+  constructor(private http : HttpClient,
+              private router: Router,
+              private shared: SharedService) { }
 
   ngOnInit(): void {
   }
@@ -21,8 +24,8 @@ export class LoginComponent implements OnInit {
             username: this.username,
             password: this.pass
           }).subscribe(data => {
+            this.shared.setUsername(this.username);
             this.router.navigate([`home`]);
-            console.log("successss");
           })
   }
 }

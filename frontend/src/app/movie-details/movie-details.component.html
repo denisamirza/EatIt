@@ -3,12 +3,16 @@
   <img src={{movie.Poster}}/>
   <td>{{movie.Plot}}</td>
 </div>
+<button mat-raised-button (click)="addToFavourites()">Add to favourites</button>
 
 <div>
   <ng-container *ngFor="let item of commentsList">
     <div>
       <td>{{item.username}}</td>
       <td>{{item.comment}}</td>
+      <p *ngIf="item.username == this.username">
+        <button mat-raised-button (click)="deleteComment(item._id)">Delete</button>
+      </p>
     </div>
   </ng-container>
 </div>

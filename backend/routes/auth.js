@@ -47,6 +47,7 @@ router
            password: hash
         })
         console.log(hash);
+        response.json(200,{status:"ok"})
     })
 
 module.exports = router

@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
   movieId: any;
+  username: any;
   constructor() { }
 
   setMovieId(movieId: any) {
@@ -13,5 +14,13 @@ export class SharedService {
 
   getMovieId() {
     return this.movieId;
+  }
+
+  setUsername(username: any) {
+    this.username = username;
+  }
+
+  getUsername() {
+    return this.username;
   }
 }

@@ -16,7 +16,7 @@ const userFavourites = mongoose.model(
 router
     .route('/:username')
     .get((request, res) => {
-        userFavourites.collection.find({movieId: request.params.username}).toArray(function (err, result) {
+        userFavourites.collection.find({username: request.params.username}).toArray(function (err, result) {
             if (err) {
                res.status(400).send("Error fetching listings!");
            } else {
@@ -29,11 +29,26 @@ router
 router 
     .route('/addUserFavouriteMovie')
     .post((request) => {
-        userFavourites.collection.insertOne(
-        {
-           username: request.body.username,
-           movieId: request.body.movieId,
-        })
+        userFavourites.collection.updateOne(
+            {
+                username: request.body.username,
+                movieId: request.body.movieId
+            },
+            {
+                '$set':{
+                    username: request.body.username,
+                    movieId: request.body.movieId
+                }
+            },
+            { upsert: true }
+        )
+    })
+
+router 
+    .route('/delete')
+    .delete((request) => {
+        console.log(JSON.stringify(request.headers) + " "+request.headers.username + " "+ request.headers.movieid)
+        userFavourites.collection.deleteOne({username:request.headers.username, movieId: request.headers.movieid})
     })
 
 module.exports = router
