@@ -1,12 +1,14 @@
-<p>Your favourite movies:</p>
+<br>
+<h1>Your favourite movies</h1>
 
 <owl-carousel-o [options]="customOptions">
   <ng-container *ngFor="let item of favouriteMovies">
     <ng-template carouselSlide [id]="item.imdbID">
       <div class="movie">
-        <img src={{item.Poster}} width="100" height="200"/>
-        <td>{{item.Title}}</td>
-        <button mat-raised-button (click)="gotToMovie(item.imdbID)">goToMovie</button>
+        <button mat-raised-button (click)="gotToMovie(item.imdbID)">
+          <img src={{item.Poster}} style="width: auto;"/>
+          <h3 class="title">{{item.Title}}</h3>
+        </button>
         <button mat-raised-button (click)="deleteFromFavourites(item.imdbID)">Delete from Favourites</button>
       </div>
     </ng-template>
