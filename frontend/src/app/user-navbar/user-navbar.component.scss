@@ -3,14 +3,14 @@
       margin-bottom: 0px;
   }
   footer {
-      position: sticky;
+      position: absolute;
       bottom: 0;
       width: 100%;
       height: 60px;
       line-height: 60px;
-      background-color: #000000;
+      background-color: #202C45;
       z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-      color: white;
+      color: #E81C2E;
   }
   button {
     background-color: transparent;

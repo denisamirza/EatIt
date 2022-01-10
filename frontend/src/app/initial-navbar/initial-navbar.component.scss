@@ -1,23 +1,34 @@
 @media screen and (max-width: 1024px){
   body {
       margin-bottom: 0px;
-  }
-  footer {
-      position: sticky;
-      bottom: 0;
-      width: 100%;
-      height: 60px;
-      line-height: 60px;
-      background-color: #000000;
-      z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
-      color: white;
-  }
-  button {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        background-color: #202C45;
+        z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+        color: #E81C2E;
+    }
+    button {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+    }
+    a {
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    a:link, a:visited {
+        color: #E81C2E;
+    }
+    a:hover, a:active {
+        color: #FFFFFF;
+    }
 }
