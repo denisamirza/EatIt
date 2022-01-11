@@ -106,6 +106,7 @@ export class FavouriteMoviesComponent implements OnInit {
     const headers = { 'username': this.username, 'movieId': movieId };
     this.http.delete('http://localhost:3000/userFavourites/delete', { headers })
         .subscribe(() => console.log("deleted"));
+        this.favouriteMovies = this.favouriteMovies.filter((item: any) => item.imdbID != movieId);
   }
 
 }
