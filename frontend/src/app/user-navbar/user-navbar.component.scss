@@ -2,7 +2,7 @@
       margin-bottom: 0px;
   }
   footer {
-      position: fixed;
+      position: sticky;
       bottom: 0;
       width: 100%;
       height: 60px;
@@ -22,7 +22,7 @@
 /* Create three equal columns that floats next to each other */
 .column {
     float: left;
-    width: 33.33%;
+    width: 33.30%;
     padding: 10px;
 }
 /* Clear floats after the columns */
