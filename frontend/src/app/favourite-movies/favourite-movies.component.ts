@@ -24,10 +24,10 @@ export class FavouriteMoviesComponent implements OnInit {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 4
+        items: 3
       },
       400: {
-        items: 4
+        items: 3
       },
       740: {
         items: 8

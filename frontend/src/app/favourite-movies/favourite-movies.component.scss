@@ -19,10 +19,17 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
 }
 .button {
     background-color: #202C45;
     color: #E81C2E;
     font-weight: bold;
     width: 100%;
+}
+
+#grad1 {
+  height: 200px;
+  background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+  background-image: linear-gradient(rgb(2, 0, 27), rgb(255, 255, 255));
 }
