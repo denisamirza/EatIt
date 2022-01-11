@@ -8,8 +8,9 @@
         <button mat-raised-button (click)="gotToMovie(item.imdbID)">
           <img src={{item.Poster}} style="width: auto;"/>
           <h3 class="title">{{item.Title}}</h3>
+          <button class="button" mat-raised-button (click)="deleteFromFavourites(item.imdbID)">X</button>
         </button>
-        <button mat-raised-button (click)="deleteFromFavourites(item.imdbID)">Delete from Favourites</button>
+        
       </div>
     </ng-template>
   </ng-container>
