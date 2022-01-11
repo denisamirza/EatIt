@@ -34,23 +34,25 @@ export class MovieComponent implements OnInit {
     },
     nav: true
   }
-  movie: any;
+  movie: any = [];
   constructor(private http : HttpClient,
               private router: Router,
               private shared: SharedService) { }
 
   ngOnInit(): void {
-    this.getImDbMovies();
+    this.getImDbMovies("batman");
+    this.getImDbMovies("sting");
+    this.getImDbMovies("inception");
   }
 
-  getImDbMovies() {
-    this.http.get('http://localhost:3000/movie/imdb', {
+  getImDbMovies(movieName: any) {
+    this.http.get('http://localhost:3000/movie/'+movieName, {
           }).subscribe(data => {
             console.log("success" + JSON.stringify(data));
-              this.movie = JSON.parse(JSON.stringify(data));
-              this.movie = this.movie["Search"];
+              this.movie[movieName] = JSON.parse(JSON.stringify(data));
+              this.movie[movieName] = this.movie[movieName]["Search"];
               this.toDataURL(
-                this.movie["Poster"],
+                this.movie[movieName]["Poster"],
                 function (dataUrl : any) {
 
                   console.log('deni:' + dataUrl);

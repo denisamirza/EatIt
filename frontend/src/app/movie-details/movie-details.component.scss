@@ -64,3 +64,8 @@ button {
   background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
   background-image: linear-gradient(rgb(2, 0, 27), rgb(255, 255, 255));
 }
+
+button.fav {
+  margin-right: 180px;
+  margin-top: 20px;
+}

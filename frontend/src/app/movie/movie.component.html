@@ -6,7 +6,7 @@
 <br><br><br><br>
 <h1>MOVIES</h1>
 <owl-carousel-o [options]="customOptions">
-  <ng-container *ngFor="let item of movie">
+  <ng-container *ngFor="let item of movie.batman">
     <ng-template carouselSlide [id]="item.imdbID">
       <div class="myclass">
         <button mat-raised-button (click)="gotToMovie(item.imdbID)">
@@ -17,10 +17,20 @@
     </ng-template>
   </ng-container>
 </owl-carousel-o>
-
-<h1>MOVIES</h1>
 <owl-carousel-o [options]="customOptions">
-  <ng-container *ngFor="let item of movie">
+  <ng-container *ngFor="let item of movie.inception">
+    <ng-template carouselSlide [id]="item.imdbID">
+      <div class="myclass">
+        <button mat-raised-button (click)="gotToMovie(item.imdbID)">
+          <img src={{item.Poster}}  class="myimage"/>
+          <h3 class="title">{{item.Title}}</h3>
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let item of movie.sting">
     <ng-template carouselSlide [id]="item.imdbID">
       <div class="myclass">
         <button mat-raised-button (click)="gotToMovie(item.imdbID)">
@@ -32,7 +42,7 @@
   </ng-container>
 </owl-carousel-o>
 
-<br><br><br>
+<br>
 
 <app-user-navbar></app-user-navbar>
 </div>
